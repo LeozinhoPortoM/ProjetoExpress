@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const port = 3000;
 
 let usuario = {}
 
@@ -25,4 +26,4 @@ app.delete('/usuario/:id', (req, res) => {
     res.send("Rota para deletar um usuário da lista");
 })
 
-app.listen(3000, () => console.log("Servidor rodando na prota 3000"))
+app.listen(port, () => console.log("Servidor rodando na prota 3000"))
