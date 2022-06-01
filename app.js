@@ -4,6 +4,17 @@ const port = 3000;
 
 let usuario = {}
 
+const series = [
+    {
+      id: 1,
+      nome: 'Irmão do Jorel'
+    },
+    {
+      id: 2,
+      nome: 'Um maluco no pedaço'
+    }
+]
+
 app.get('/usuario', (req, res) => {
     res.send("Rota get para usuario");
 })
@@ -16,6 +27,17 @@ app.post('/usuario', (req, res) => {
         idade: 38
     });
 })
+
+
+app.get("/serie/:id", (req, res) => {
+    let { id } = req.params;
+    console.log(`Id ${id}`)
+    series.find(serie => {
+        if (serie.id == id) {
+            res.send(serie)
+        }
+    });
+});
 
 
 app.put('/usuario/:id', (req, res) => {
